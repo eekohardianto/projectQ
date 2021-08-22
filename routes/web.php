@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\StudentCrud;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+/* Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard');
+})->name('dashboard'); */
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('students', StudentCrud::class)->name('students');
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+}); 

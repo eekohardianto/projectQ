@@ -10,10 +10,10 @@ class StudentCrud extends Component
     public $students, $name, $email, $mobile, $student_id;
     public $isModalOpen = 0;
 
-    public function render()
+     public function render()
     {
         $this->students = Student::all();
-        return view('livewire.student');
+        return view('livewire.student');     
     }
 
     public function create()
